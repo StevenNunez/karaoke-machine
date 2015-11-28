@@ -1,0 +1,6 @@
+<div class="row">
+  <button {{action "previous"}} disabled="{{if hasPrevious "" true}}">Previous</button>
+  <button {{action "next"}} disabled="{{if hasNext "" true}}">Next</button>
+  {{link-to "Add More songs!" "playlists.playlist" model target="_blank"}}
+  {{youtube-player video=currentVideo height=720 width=1170}}
+</div>

@@ -6,5 +6,12 @@
       onSelect=(action "addToPlaylist")}}
   </div>
   <div class="col-xs-9">
+    {{#each model.videos as |video|}}
+      {{video-list-item video=video onSelect=(action (action "selectVideo") video)}}
+    {{/each}}
+
+    {{#if selectedVideo}}
+      {{youtube-player video=selectedVideo height=390 width=640}}
+    {{/if}}
   </div>
 </div>

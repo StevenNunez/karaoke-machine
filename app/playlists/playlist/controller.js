@@ -8,7 +8,6 @@ export default Ember.Controller.extend({
   selectedVideo: null,
   socket: Ember.inject.service(),
   channel: Ember.computed("model", function(){
-    console.log(`playlists:${this.get("model.id")}`);
     let channel =  this.get('socket').channel(`playlists:${this.get("model.id")}`)
     channel.join();
     return channel;
@@ -17,8 +16,9 @@ export default Ember.Controller.extend({
     addToPlaylist(video){
       this.get('model.videos').pushObject(video);
       this.get('model').save().then((playlist) => {
-        var c = this.get('channel').push("playlist_update", playlist);
-      })
+        this.get('channel').push("playlist_update", video);
+        this.set('message', `${video.get('title')} added to your playlist`);
+      });
     },
     queryForVideo(query){
       return this.store.query('video', {q: query});

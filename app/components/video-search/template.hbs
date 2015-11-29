@@ -1,2 +1,8 @@
-{{input value=q key-up="updateQuery" }}
-{{videos-list videos=results onSelect=onSelect}}
+<div>
+  {{input value=q key-up="updateQuery" autofocus='true'}}
+</div>
+<div>
+  {{#videos-list videos=results onSelect=onSelect as |video|}}
+    <button type="button" name="button" {{action "add" video}}>Add to Playlist</button>
+  {{/videos-list}}
+</div>

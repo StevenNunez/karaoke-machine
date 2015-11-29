@@ -1,4 +1,11 @@
 <div class="row">
+<h2>Now playing: {{currentVideo.title}}</h2>
+{{#if hasNext}}
+  <h3>Up next {{nextVideo.title}}</h3>
+{{/if}}
+</div>
+
+<div class="row">
   <button {{action "previous"}} disabled="{{if hasPrevious "" true}}">Previous</button>
   <button {{action "next"}} disabled="{{if hasNext "" true}}">Next</button>
   {{link-to "Add More songs!" "playlists.playlist" model target="_blank"}}

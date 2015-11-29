@@ -12,6 +12,9 @@ export default Ember.Controller.extend({
     return this.get('lastIndex') > this.get('currentVideoIndex')
   }),
   hasPrevious: Ember.computed.gt('currentVideoIndex', 0),
+  nextVideo: Ember.computed('currentVideoIndex', 'model.video.length', function(){
+    return this.get('model.videos').objectAt(this.get('currentVideoIndex') + 1);
+  }),
   actions: {
     previous(){
       if (this.get('hasPrevious')) {

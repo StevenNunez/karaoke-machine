@@ -1,3 +1,5 @@
 {{#each videos as |video|}}
-  {{video-list-item video=video onSelect=(action onSelect video)}}
+  {{#video-list-item video=video onSelect=onSelect}}
+    {{yield video}}
+  {{/video-list-item}}
 {{/each}}

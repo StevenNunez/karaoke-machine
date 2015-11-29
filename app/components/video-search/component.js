@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  results: null,
   getResults(query){
     this.set("results", this.attrs.onVideoLookup(query));
   },
@@ -9,6 +8,10 @@ export default Ember.Component.extend({
     updateQuery(query){
       // Pretty cool. Causes a delay
       Ember.run.debounce(this, "getResults", query, 300);
+    },
+    add(video){
+      debugger;
+      this.attrs.onSelect(video);
     }
   }
 });

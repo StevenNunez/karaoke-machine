@@ -3,6 +3,6 @@
 </div>
 <div>
   {{#videos-list videos=results onSelect=onSelect as |video|}}
-    <button type="button" name="button" {{action "add" video}}>Add to Playlist</button>
+    <button type="button" name="button" {{action "add" video}} class="btn btn-block btn-success">Add to Playlist</button>
   {{/videos-list}}
 </div>
